@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+.welcome {
+	padding-top: 30px;
+	margin-right: 50px;
+}
