@@ -1,24 +1,11 @@
-# README
+<h1>Gossip Project</h1>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<h3>Pour lancer l'application</h3>
+<ul>
+	<li>bundle install</li>
+	<li>rails db:create</li>
+	<li>rails db:migrate</li>
+	<li>rails db:seed</li>
+	<li>rails s</li>
+	<li>visite => localhost:3000/</li>
+</ul>
