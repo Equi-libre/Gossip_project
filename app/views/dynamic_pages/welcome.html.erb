@@ -1,24 +1,3 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Gossip Project</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav text-left">
-      <li class="nav-item active">
-        <%= link_to "Home", root_path, :class => "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Team", static_pages_team_path, :class => "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Contact", static_pages_contact_path, :class => "nav-link" %>
-      </li>
-    </ul>
-  </div>
-</nav>
 
 <h1>Hello <%= params[:user].first_name %></h1>
 <p>Bienvenue sur notre super site qui référence tous les potins les plus croustillants</p>

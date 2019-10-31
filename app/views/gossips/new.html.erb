@@ -1,0 +1,17 @@
+<div class="alert alert-danger" role="alert">
+  <p id="alert"><%= flash.now[:alert] %></p>
+</div>
+
+
+<form action= "<%= gossips_path %>" method="POST">
+  <input type="hidden" name="authenticity_token" value= <%= form_authenticity_token %> >
+  <div class="form-group">
+    <h3> Enter a new Gossip !</h3><br>
+    <p style = "width: 200px"> Title : <input type="text" name="gossip_title"></p>
+  </div>
+  <div class="form-group">
+    <h3> content !</h3><br>
+    <p style = "width: 200px">Content : <input type="text" name="gossip_content"></p>
+  </div>
+  <p><input type="submit" value="Valider"></p>
+</form>
