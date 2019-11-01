@@ -8,7 +8,7 @@ class GossipsController < ApplicationController
   end
 
   def create
-  	params[:gossip] = Gossip.new(title: params[:gossip_title],content: params[:gossip_content],user_id: 11)
+  	params[:gossip] = Gossip.new(title: params[:gossip_title],content: params[:gossip_content], user_id: current_user.id)
   	if params[:gossip].save
   		flash.now[:success] = 'Bravo tu as bien enregistré ton Gossip !'
   		redirect_to :action => 'index', notice: 'Thank You For Subscribing!'

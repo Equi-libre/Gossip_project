@@ -30,7 +30,7 @@
           </li>
           <li class="nav-item">
           </li>
-            <%= link_to "Bienvenue" + current_user.first_name, {controller: "users", action: "show", id: current_user.id}, :class => "nav_item" %>
+            
             <%= link_to "Se déconnecter", session_path(session.id), controller: "sessions", action: "destroy", :class => "nav-link" %>
             <li class="nav-item dropdown">
               <div class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
