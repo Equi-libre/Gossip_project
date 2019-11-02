@@ -5,33 +5,21 @@
 	</div>
  <% end %>
 
-<body>
-	<div class="container-fluide">
-	<div class="welcome text-center">
-		<h1>Hello visiteur</h1>
-		<p>Voici la liste des potins:</p>
-	</div>
-</div>
-
 <div class="div text-center">
 	<%=link_to "Créer un Gossip", new_gossip_path, class: 'btn btn-outline-success' %>
 </div>
 
-
-<div class="container">
+<div class="container-fluid">
 	<div class="row">
-		<% params[:gossip_array].each do |gossip| %>
-		<div class="col-6 col-sm-4 col-md-4 col-lg-4 mt-5 ">
-			<div class="card text-center" style="width: 18rem;">
-			  <div class="card-body">
-					
-			    <p class="card-text"><%= gossip.content %></p>
-			    <p class="card-text">Écrit le <%= gossip.created_at %></p>
-			    <%= link_to "Voir le Gossip", gossip_path(:id => gossip.id), class: 'btn btn-primary' %>
-			  </div>
-			</div>
-		</div>
-		<%end %>
-	</div>
+	<% params[:gossip_array].each do |gossip| %>
+	<div class="col-md-3 col-sm-4">
+	<div class="wrimagecard wrimagecard-topimage">
+    <%= link_to gossip_path(:id => gossip.id) do %>
+    	<div class="wrimagecard-topimage_title">
+        <p class="card-text"><%= gossip.content %></p>
+			  <p class="card-text">Écrit le <%= gossip.created_at %></p>
+      </div>
+    <% end %> 
+  </div>
 </div>
-</body>
+<% end %>
