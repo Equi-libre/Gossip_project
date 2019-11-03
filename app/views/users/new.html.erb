@@ -1,25 +1,21 @@
-<div class="wrapper fadeInDown">
+<h3 class="text-center display-4">S'inscrire</h3>
+<div class="wrapper-register fadeInDown">
   <div id="formContent">
-    <!-- Tabs Titles -->
-
-    <!-- Icon -->
-
-
     <!-- Login Form -->
     <form action="<%= users_path %>" method="POST">
       <div class="note">
-        <p>Je m'enregistre</p>
       </div>
+
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      <input type="text" id="login" class="fadeIn second" name="first_name" placeholder="Prénom">
-      <input type="text" id="password" class="fadeIn third" name="last_name" placeholder="Nom">
-      <input type="text" id="password" class="fadeIn third" name="email" placeholder="@Email">
-      <input type="text" id="password" class="fadeIn third" name="password" placeholder="Mot de passe">
-      <input type="text" id="password" class="fadeIn third" name="password" placeholder="Confirmer Mot de Passe">
-      <input type="text" id="password" class="fadeIn third" name="description" placeholder="Description">
-      <input type="text" id="password" class="fadeIn third" name="age" placeholder="Age">
-      <%= select_tag 'city', options_from_collection_for_select(City.all.order(:name), 'id','name'), class: "browser-default custom-select" %>
-      <input type="submit" class="fadeIn fourth" value="ENVOYER">
+      <input type="text" id="login" class="fadeIn second input-width" name="first_name" placeholder="Prénom" style="width: 300px">
+      <input type="text" id="password" class="fadeIn third" name="last_name" placeholder="Nom" style="width: 300px">
+      <input type="text" id="password" class="fadeIn third" name="email" placeholder="@Email" style="width: 300px">
+      <input type="text" id="password" class="fadeIn third" name="password" placeholder="Mot de passe" style="width: 300px">
+      <input type="text" id="password" class="fadeIn third" name="password" placeholder="Confirmer Mot de Passe" style="width: 300px">
+      <input type="text" id="password" class="fadeIn third" name="description" placeholder="Description" style="width: 300px">
+      <input type="text" id="password" class="fadeIn third mb-3" name="age" placeholder="Age" style="width: 300px">
+      <%= select_tag 'city', options_from_collection_for_select(City.all.order(:name), 'id','name'), class: "browser-default custom-select outline-city" %>
+      <input type="submit" class="fadeIn fourth mt-2" value="ENVOYER">
     </form>
   </div>
 </div>

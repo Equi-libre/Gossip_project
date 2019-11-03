@@ -1,25 +1,36 @@
 
-<% if params[:gossip] != nil%>
-	<div id="success" class="alert alert-success">
-  		<p><%= flash.now[:success] = 'Création du potin avec succès' %></p>
-	</div>
- <% end %>
+<% if !@gossip.nil? && @gossip.errors.any? %>
+  <div class="alert alert-danger">
+    <p>We were not able to add your gossip for the following reasons :</p>
+    <ul>
+      <% @gossip.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
-<div class="div text-center">
-	<%=link_to "Créer un Gossip", new_gossip_path, class: 'btn btn-outline-success' %>
+<h1 class="text-center title pt-3">Gossip Project</h1>
+<p class="text-center title2">Partage tes histoires les plus crousillantes</p>
+<div class="container header-top">
+	<div class="div text-center align-bottom">
+		<%=link_to "Créer un Gossip", new_gossip_path, class: 'btn btn-outline-success' %>
+	</div>
 </div>
 
-<div class="container-fluid">
+
+<div class="container-fluid pt-5 shadow-lg p-3 mb-5 rounded bg-color-index">
 	<div class="row">
 	<% params[:gossip_array].each do |gossip| %>
 	<div class="col-md-3 col-sm-4">
-	<div class="wrimagecard wrimagecard-topimage">
+	<div class="wrimagecard wrimagecard-topimage ">
     <%= link_to gossip_path(:id => gossip.id) do %>
-    	<div class="wrimagecard-topimage_title">
-        <p class="card-text"><%= gossip.content %></p>
-			  <p class="card-text">Écrit le <%= gossip.created_at %></p>
-      </div>
-    <% end %> 
+  	<div class="wrimagecard-topimage_title">
+  		<h4 class="card-text text-center text-capitalize pt-4"><b><%= gossip.title %></b></h4>
+  		<p class="card-text  d-inline float-left pt-4">Créé par: <%= gossip.user.first_name.capitalize %></p>
+		  <p class="card-text  d-inline float-right pt-4"><small>le <%= gossip.created_at.strftime("%d-%m-%Y") %></small></p>
+    </div>
   </div>
+  <% end %>
 </div>
 <% end %>

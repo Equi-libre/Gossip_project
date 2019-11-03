@@ -3,9 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /*Login CSS*/
-html {
-  background-color: #56baed;
-}
+
 
 body {
   font-family: "Poppins", sans-serif;
@@ -38,9 +36,15 @@ h2 {
   align-items: center;
   flex-direction: column; 
   justify-content: center;
-  width: 100%;
-  min-height: 100%;
-  padding: 20px;
+  padding-top: 30px;
+}
+
+.wrapper-register {
+  display: flex;
+  align-items: center;
+  flex-direction: column; 
+  justify-content: center;
+  padding-top: 10px;
 }
 
 #formContent {

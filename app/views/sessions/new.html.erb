@@ -4,15 +4,15 @@
 
     <!-- Icon -->
     <div class="fadeIn first">
-			<%= image_tag "megaphone.png", :id => "icon", :alt => "User Icon" %>
+			<%= image_tag "megaphone.png", class: "pt-4", :id => "icon", :alt => "User Icon" %>
     </div>
 
     <!-- Login Form -->
     <form action="<%= sessions_path %>" method="POST">
     	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      <input type="text" id="login" class="fadeIn second" name="email" placeholder="login">
-      <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
-      <input type="submit" class="fadeIn fourth" value="Log In">
+      <input type="text" id="login" class="fadeIn second" name="email" placeholder="@Email" style="width: 300px">
+      <input type="text" id="password" class="fadeIn third" name="password" placeholder="Mot de passe" style="width: 300px">
+      <input type="submit" class="fadeIn fourth mt-4" value="Se connecter">
     </form>
   </div>
 </div>

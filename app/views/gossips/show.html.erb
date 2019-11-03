@@ -1,12 +1,12 @@
 <div class="card text-center">
   <div class="card-body">
-    <h5 class="card-title"><%= params[:gossip].title %></h5>
-    <p class="card-text"><%= params[:gossip].content %></p>
-    <p class="card-text"><%= params[:gossip].user.first_name %></p>
-    <p class="card-text"><%= params[:gossip].user.city.name %></p>
-    <p class="card-text">Écrit le <%= params[:gossip].created_at %></p>
-    <%= link_to "Ajouter un commentaire", new_comment_path, :class => "btn btn-primary" %><br>
+    <h3 class="card-title">Titre: <%= params[:gossip].title %></h3>
+    <h5 class="card-text">Contenu: <br><%= params[:gossip].content %></h5>
+    <p class="card-text"><b>Auteur: <%= link_to params[:gossip].user.first_name, author_path %></p>
+    <p class="card-text">Ville: <%= params[:gossip].user.city.name %></p>
+    <p class="card-text">Écrit le <%= params[:gossip].created_at.strftime("%d-%m-%Y") %></p>
+    
     <%= link_to "Éditer", edit_gossip_path, :class => "btn btn-success btn-sm" %><%= link_to "Supprimer", gossip_path, :class => "btn btn-danger btn-sm", :data => {:confirm => "Êtes-vous sur?(e)"}, :method => :DELETE %><br>
-    <%= link_to "Afficher le profil", author_path, :class => "btn btn-primary" %>
+    <%= link_to "Ajouter un commentaire", new_comment_path, :class => "btn btn-primary" %><br>
   </div>
 </div>

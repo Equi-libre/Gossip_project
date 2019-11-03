@@ -18,6 +18,11 @@ class User < ApplicationRecord
   validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i, message: "please enter a valid email" }
   validates :age, :numericality => { :greater_than_or_equal_to => 0 }
   validates :password, presence: true, length: { minimum: 6 }
+
+  def remember(remember_token)
+    remember_digest = BCrypt::Password.create(remember_token)
+    self.update(remember_digest: remember_digest)
+  end
 end
 
 

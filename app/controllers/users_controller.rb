@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def create
   	
-  	@user = User.new(
+  	user = User.new(
   		first_name: params[:first_name],
   		last_name: params[:last_name],
   		email: params[:email],
@@ -11,10 +11,11 @@ class UsersController < ApplicationController
   		age: params[:age]
   		)
   	if 
-  		@user.save
+  		user.save
   		flash[:success] = "Création du compte avec succès !"
   		redirect_to gossips_path
   	else
+      flash.now[:alert] = 'Mauvais login'
   		render :new
   	end
   end
@@ -23,6 +24,6 @@ class UsersController < ApplicationController
   end
 
   def show
-  	@user = User.find(params[:id])
+  	user = User.find(params[:id])
   end
 end

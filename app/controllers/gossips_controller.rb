@@ -1,4 +1,5 @@
 class GossipsController < ApplicationController
+
   def index
   	params[:gossip_array] = Gossip.all
   end
@@ -9,13 +10,13 @@ class GossipsController < ApplicationController
 
   def create
   	@gossip = Gossip.new(title: params[:gossip_title],
-                        content: params[:gossip_content],
-                        user_id: session[:user_id])
+                         content: params[:gossip_content],
+                         user_id: session[:user_id])
   	if @gossip.save
-  		flash.now[:success] = 'Bravo tu as bien enregistré ton Gossip !'
+  		flash.now[:success] 
   		redirect_to :action => 'index', notice: 'Thank You For Subscribing!'
   	else
-  		flash.now[:alert] = "Loupé ! un titre, un contenu et c'est parti!"
+  		flash.now[:alert]
   		render :new
   	end
   end
@@ -37,7 +38,7 @@ class GossipsController < ApplicationController
   end
 
   def destroy
-    @gossip = Gossip.find(params[:id].to_i)
+    @gossip = Gossip.find(params[:id])
     @gossip.destroy
     redirect_to :action => "index"
   end

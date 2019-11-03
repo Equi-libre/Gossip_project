@@ -29,7 +29,7 @@ a.wrimagecard:hover, .wrimagecard-topimage:hover {
 }
 .wrimagecard-topimage_title {
     padding: 20px 24px;
-    height: 80px;
+    height: 150px;
     padding-bottom: 0.75rem;
     position: relative;
 }
@@ -38,5 +38,27 @@ a.wrimagecard:hover, .wrimagecard-topimage:hover {
     text-decoration: none;
     color: #525c65;
     transition: color 0.3s ease;
+}
+
+.bg-color-index {
+    background: #eee;
+    height: 100%;
+}
+
+.header-top {
+    height: 130px;
+    padding-top: 20px;
+}
+
+.title {
+    font-size: 70px;
+}
+
+.title2 {
+    font-size: 30px;
+}
+
+title-author {
+    text-color: #007b5e;
 }
 

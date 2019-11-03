@@ -11,7 +11,8 @@
     <!-- JavaScript - CDN -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!-- Font-Awesome - CDN -->
-    <link href="//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -27,19 +28,28 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <%= link_to "Contact", contact_path, :class => "nav-link" %>
+                <% if logged_in? %>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> <%= current_user.first_name %> </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
+                        <%= link_to "Se déconnecter", session_path(session.id), method: :delete, :class => "nav-link" %>
+                    </div>
                 </li>
-                <li class="nav-item">
-                   
-                    <%= link_to "Team", team_path, :class => "nav-link" %>
-                </li>
+                <% else %>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Profile </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
-                        <%= link_to "Register", new_user_path, :class => "nav-link" %>
-                        <%= link_to "Login", new_session_path, :class => "nav-link" %>
+                        <%= link_to "S'enregistrer", new_user_path, :class => "nav-link" %>
+                        <%= link_to "Se connecter", new_session_path, :class => "nav-link" %>
                     </div>
+                </li>
+                <% end %>
+                <li class="nav-item">
+                   
+                    <%= link_to "Team", teams_path, :class => "nav-link" %>
+                </li>
+                <li class="nav-item active">
+                    <%= link_to "Contact", contacts_path, :class => "nav-link" %>
                 </li>
             </ul>
         </div>

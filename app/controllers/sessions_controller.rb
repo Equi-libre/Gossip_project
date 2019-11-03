@@ -1,11 +1,11 @@
 class SessionsController < ApplicationController
   def create
-  	@user = User.find_by(email: params[:email])
-  	if @user && @user.authenticate(params[:password])
-  		session[:user_id] = @user.id
+  	user = User.find_by(email: params[:email])
+  	if user && user.authenticate(params[:password])
+  		log_in(user)
+      remember(user)
   		flash[:sucess] = "Connexion réussie"
   		redirect_to "/"
-  		puts "auth réussi bro"
   	else
   		flash.now[:danger] = "Informations invalides"
   		render :new
